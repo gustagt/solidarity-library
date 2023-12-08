@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// React
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+
+// components
+
+// pages
+import Login from "./pages/login/Login"
+import LoginAdm from "./pages/loginAdm/LoginAdm"
+import InfoBook from "./pages/infoBook/InfoBook";
+import InsertBook from "./pages/insertBook/InsertBook";
+import Dashboard from "./pages/dashboard/Dashboard";
+
+
+
+// contexts
+
+
+import "./App.css";
 
 function App() {
+  //usuario do contexto
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/info-book/:id" element={<InfoBook />}></Route>
+          <Route path="/login-adm" element={<LoginAdm />}></Route>
+          <Route path="/insert-book" element={<InsertBook />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+
+          <Route path="*" element={<Navigate to="/login" />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

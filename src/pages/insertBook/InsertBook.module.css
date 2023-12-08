@@ -1,0 +1,30 @@
+.form {
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form button {
+  width: 80%;
+  height: 38px;
+  max-width: 360px;
+  border: 2px solid;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.form button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+}
+
+.containerInsertBook{
+  height: 100vh;
+}
+

@@ -1,0 +1,26 @@
+.formLogin {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formLogin input[type="text"],
+.formLogin input[type="password"],
+.formLogin button {
+  width: 80%;
+  height: 38px;
+  max-width: 360px;
+  border: 2px solid;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.formLogin button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+}
+

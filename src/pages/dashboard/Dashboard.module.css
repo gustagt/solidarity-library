@@ -1,0 +1,23 @@
+table{
+  width: 80%;
+  max-width: 1200px;
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  text-align: left;
+}
+
+
+tr:hover {background-color: rgb(3, 180, 83);}
+
+.containerTable{
+  display: flex;
+  justify-content: center;
+}
