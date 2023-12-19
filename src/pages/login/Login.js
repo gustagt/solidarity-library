@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://localhost:5000";
+const url = "http://10.101.23.197:5000";
 
 const Login = () => {
+
+  const { id } = useParams();
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,12 +39,16 @@ const Login = () => {
       .then((data) => {
         if (!data.token) throw data.message
         // Faça algo com os dados retornador
-        setUser({
+        const dataUser = {
           username: data.username,
           displayName: data.displayName,
           token: data.token,
-        });
-        navigate('/info-book/1')
+        };
+        
+        setUser(dataUser);
+
+        localStorage.setItem("user-library-solidary", JSON.stringify(dataUser));
+        navigate(`/info-book/${id}`)
       })
       .catch((error) => {
         console.log("error", error);

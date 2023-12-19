@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styles from "./InsertBook.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://localhost:5000";
+const url = "http://10.101.23.197:5000";
 
 const InsertBook = () => {
   const navigate = useNavigate("");
@@ -11,41 +12,53 @@ const InsertBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [pages, setPages] = useState(0);
+    const [message, setMessage] = useState("");
+
+    const { user, setUser } = useUserContext();
+
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const data = {
+    const book = {
       title,
       author,
       pages,
     };
 
+    const formData = new FormData();
+    const image = document.querySelector("#img_book").files[0];
+    formData.append("book", JSON.stringify(book));
+    formData.append("img_book", image);
+
     const body = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        Token: user.token,
       },
-      body: JSON.stringify(data),
+      body: formData,
+
     };
 
     fetch(url + "/books", body)
-      .then((response) => {
-        return response.json();
-      })
+    .then((response) => {
+      return response.json();
+    })
       .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+      if (data.message) return setMessage(data.message);
+      navigate('/dashboard')
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
   }
+  
 
   return (
     <div className={styles.containerInsertBook}>
       <Navbar />
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label >
+        <label>
           <input
             type="text"
             placeholder="Titulo"
@@ -69,10 +82,17 @@ const InsertBook = () => {
             onChange={(e) => setAuthor(e.target.value)}
           />
         </label>
+        <label htmlFor="">
+          <input
+            type="file"
+            name="img_book"
+          id="img_book"
+  
+          />
+        </label>
         <button type="submit">Save</button>
       </form>
     </div>
   );
 };
-
 export default InsertBook;

@@ -12,25 +12,42 @@ import InsertBook from "./pages/insertBook/InsertBook";
 import Dashboard from "./pages/dashboard/Dashboard";
 
 
-
 // contexts
 
 
 import "./App.css";
+import { useUserContext } from "./hooks/useUserContext";
 
 function App() {
   //usuario do contexto
+  const { user, setUser } = useUserContext();
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/info-book/:id" element={<InfoBook />}></Route>
+          <Route path="/login/:path/:id" element={<Login />}></Route>
           <Route path="/login-adm" element={<LoginAdm />}></Route>
-          <Route path="/insert-book" element={<InsertBook />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-
+          <Route
+            path="/info-book/:id"
+            element={
+              user ? (
+                <InfoBook />
+              ) : (
+                <Navigate
+                  to={`/login${window.location.pathname}`}
+                />
+              )
+            }
+          ></Route>
+          <Route
+            path="/insert-book"
+            element={user ? <InsertBook /> : <Navigate to="/login-adm" />}
+          ></Route>
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard /> : <Navigate to="/login-adm" />}
+          ></Route>
           <Route path="*" element={<Navigate to="/login" />}></Route>
         </Routes>
       </BrowserRouter>

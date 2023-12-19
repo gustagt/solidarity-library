@@ -3,7 +3,7 @@ import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://localhost:5000";
+const url = "http://10.101.23.197:5000";
 
 const InfoBook = () => {
   const { id } = useParams();
@@ -12,6 +12,7 @@ const InfoBook = () => {
 
   const [book, setBook] = useState();
   const [protocol, setProtocol] = useState();
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     function getBook() {
@@ -19,14 +20,15 @@ const InfoBook = () => {
         method: "GET",
         headers: {
           "Content-type": "application/json",
+          Token: user.token,
         },
         mode: "cors",
       };
 
       fetch(url + `/books/${id}`, corpo)
         .then((resposta) => resposta.json())
-        .then((dados) => {
-          setBook(dados[0]);
+        .then((data) => {
+          setBook(data[0]);
         });
     }
 
@@ -35,21 +37,21 @@ const InfoBook = () => {
         method: "GET",
         headers: {
           "Content-type": "application/json",
+          Token: user.token,
         },
         mode: "cors",
       };
 
       fetch(url + `/protocols/id-book/${id}`, corpo)
         .then((resposta) => resposta.json())
-        .then((dados) => {
-          setProtocol(dados[0]);
+        .then((data) => {
+          if (data.message) return setMessage(data.message);
+          setProtocol(data[0]);
         });
     }
     getBook();
     getProtocol();
   }, [id]);
-
-  console.log(protocol);
 
   function formatDate(dateNotFormat) {
     const date = new Date(dateNotFormat);
@@ -68,17 +70,17 @@ const InfoBook = () => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        Token: user.token,
       },
       body: JSON.stringify(data),
     };
-    
 
     fetch(url + "/protocols", body)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        setProtocol(data[0]);
       })
       .catch((error) => {
         console.log("error", error);
@@ -90,6 +92,7 @@ const InfoBook = () => {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
+        Token: user.token,
       },
       body: JSON.stringify(protocol),
     };
@@ -106,11 +109,19 @@ const InfoBook = () => {
       });
   }
 
+ 
+
   return (
     <div>
       <div className={styles.card}>
-        {book && (
+        {book && !message ? (
           <>
+            <div>
+              <img
+                src={`http://10.101.23.197:5000/books/images/cover-${book.id}.jpg`}
+                alt=""
+              />
+            </div>
             <h1>
               Titulo: <span>{book.title}</span>
             </h1>
@@ -123,9 +134,16 @@ const InfoBook = () => {
             <h3>
               Doado em:<span>{formatDate(book.date)}</span>
             </h3>
-            <button onClick={handleClickPOST}>Retirar</button>
-            <button onClick={handleClickPUT}>Devolver</button>
+            {!protocol || protocol.returned_at ? (
+              <button onClick={handleClickPOST}>Retirar</button>
+            ) : (
+              <button onClick={handleClickPUT}>Devolver</button>
+            )}
           </>
+        ) : (
+          <div>
+            <b>{message}</b>
+          </div>
         )}
       </div>
     </div>
