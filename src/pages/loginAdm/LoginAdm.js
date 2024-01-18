@@ -3,15 +3,15 @@ import styles from "./LoginAdm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.23.197:5000";
+const url = "http://10.101.22.20:8010";
 
 const LoginAdm = () => {
   const navigate = useNavigate("");
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const { user, setUser } = useUserContext();
+  const {  setUser } = useUserContext();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -57,8 +57,18 @@ const LoginAdm = () => {
   return (
     <div className={styles.containerLogin}>
       <form className={styles.formLogin} onSubmit={handleSubmit}>
-        <input type="text" placeholder="User" value={username} onChange={(e) => setUsername(e.target.value)}/>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="User"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button type="submit">NEXT</button>
       </form>
     </div>

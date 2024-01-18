@@ -1,8 +1,28 @@
 .card{
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
-    background-color: whitesmoke;
     width: 80%;
     border-radius: 16px;
+}
+.card p{
+    font-size: 18px;
+}
+.card img{
+    width: 230px;
+    height: 200px;
+    margin: 0 auto;
+
+}
+.card button{
+    background-color: #0A8F3E;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.card button:active{
+    background-color:#065825;
 }

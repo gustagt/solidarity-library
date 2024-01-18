@@ -3,12 +3,12 @@ import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.23.197:5000";
+const url = "http://10.101.22.20:8010";
 
 const InfoBook = () => {
   const { id } = useParams();
 
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
 
   const [book, setBook] = useState();
   const [protocol, setProtocol] = useState();
@@ -51,7 +51,7 @@ const InfoBook = () => {
     }
     getBook();
     getProtocol();
-  }, [id]);
+  }, [id, user.token]);
 
   function formatDate(dateNotFormat) {
     const date = new Date(dateNotFormat);
@@ -116,12 +116,12 @@ const InfoBook = () => {
       <div className={styles.card}>
         {book && !message ? (
           <>
-            <div>
+           
               <img
                 src={`http://10.101.23.197:5000/books/images/cover-${book.id}.jpg`}
                 alt=""
               />
-            </div>
+            
             <h1>
               Titulo: <span>{book.title}</span>
             </h1>
@@ -141,7 +141,7 @@ const InfoBook = () => {
             )}
           </>
         ) : (
-          <div>
+          <div className="cardMessage">
             <b>{message}</b>
           </div>
         )}

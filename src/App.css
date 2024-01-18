@@ -1,3 +1,10 @@
 body{
-  background-color: #118938;
+  background-color: #ffffff;
+}
+
+.cardMessage{
+  background-color: #cccccc;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: justify;
 }

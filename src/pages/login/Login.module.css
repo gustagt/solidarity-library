@@ -1,5 +1,6 @@
 .formLogin {
-  height: 100vh;
+  padding-top: 150px;
+  height: 33vh;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -7,20 +8,34 @@
   gap: 20px;
 }
 
+
+
 .formLogin input[type="text"],
 .formLogin input[type="password"],
 .formLogin button {
   width: 80%;
   height: 38px;
   max-width: 360px;
-  border: 2px solid;
+  background-color: rgba(133, 133, 133, 0.336);
+  border-radius: 5px;
+  border:none;
+  outline: 0;
   padding: 8px;
   box-sizing: border-box;
+  font-size: 13px;
 }
 
 .formLogin button {
-  background-color: #000;
+  background-color: #0A8F3E;
   color: #fff;
   border: none;
-}
+  font-weight: bold;
+  border-radius: 5px;
 
+}
+.rodape img{
+  width: 98vh;
+  max-width: 100%;
+  max-height: 550px;
+
+}

@@ -20,7 +20,7 @@ import { useUserContext } from "./hooks/useUserContext";
 
 function App() {
   //usuario do contexto
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
 
   return (
     <div className="App">
@@ -34,9 +34,7 @@ function App() {
               user ? (
                 <InfoBook />
               ) : (
-                <Navigate
-                  to={`/login${window.location.pathname}`}
-                />
+                <Navigate to={`/login${window.location.pathname}`} />
               )
             }
           ></Route>
@@ -48,7 +46,7 @@ function App() {
             path="/dashboard"
             element={user ? <Dashboard /> : <Navigate to="/login-adm" />}
           ></Route>
-          <Route path="*" element={<Navigate to="/login" />}></Route>
+          <Route path="*" element={<Navigate to="/erro-book" />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

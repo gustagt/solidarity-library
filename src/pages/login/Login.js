@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
+import logo from "../../assets/rodape.png"
 
-const url = "http://10.101.23.197:5000";
+const url = "http://10.101.22.20:8010";
 
 const Login = () => {
 
   const { id } = useParams();
   
-  const [username, setUsername] = useState("");
+  const [username, setUsername ] = useState("");
   const [password, setPassword] = useState("");
 
-  const { user, setUser } = useUserContext();
+  const { setUser } = useUserContext();
 
   const navigate = useNavigate("");
 
@@ -65,15 +66,20 @@ const Login = () => {
           placeholder="User"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">NEXT</button>
       </form>
+      <div className={styles.rodape}>
+        <img src={logo} alt="logo" />
+      </div>
     </div>
   );
 };

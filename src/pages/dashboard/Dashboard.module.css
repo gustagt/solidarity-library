@@ -1,21 +1,30 @@
 table{
-  width: 80%;
+  padding-top: 20px;
+  width: 90%;
   max-width: 1200px;
 }
 
 th {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #0A8F3E;
+  color: #fcfcfc;
 }
 
-th, td {
-  border-bottom: 1px solid #ddd;
-  padding: 15px;
-  text-align: left;
+th {
+  border-bottom: 1px solid #0A8F3E;
+  padding: 13px;
+  text-align: center;
+}
+td{
+  font-size: 15px;
+  color: #000000;
+  text-align: center;
+  background-color:rgba(122, 122, 122, 0.226) ;
+
 }
 
-
-tr:hover {background-color: rgb(3, 180, 83);}
+tr:hover{
+  background-color: rgba(122, 122, 122, 0.438)
+}
 
 .containerTable{
   display: flex;

@@ -4,17 +4,17 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.23.197:5000";
+const url = "http://10.101.22.20:8010";
 
 const InsertBook = () => {
   const navigate = useNavigate("");
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [pages, setPages] = useState(0);
+  const [pages, setPages] = useState();
     const [message, setMessage] = useState("");
 
-    const { user, setUser } = useUserContext();
+    const { user } = useUserContext();
 
 
   function handleSubmit(e) {
@@ -64,6 +64,7 @@ const InsertBook = () => {
             placeholder="Titulo"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
         </label>
         <label htmlFor="">
@@ -72,6 +73,7 @@ const InsertBook = () => {
             placeholder="Paginas"
             value={pages}
             onChange={(e) => setPages(e.target.value)}
+            required
           />
         </label>
         <label htmlFor="">
@@ -80,15 +82,11 @@ const InsertBook = () => {
             placeholder="Autor"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
+            required
           />
         </label>
         <label htmlFor="">
-          <input
-            type="file"
-            name="img_book"
-          id="img_book"
-  
-          />
+          <input type="file" name="img_book" id="img_book" required />
         </label>
         <button type="submit">Save</button>
       </form>

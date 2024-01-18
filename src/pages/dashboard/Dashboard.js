@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
-import { useNavigate } from "react-router-dom";
+
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.23.197:5000";
+const url = "http://10.101.22.20:8010";
 
 const Dashboard = () => {
-  const navigate = useNavigate("");
 
-    const { user, setUser } = useUserContext();
+
+    const { user } = useUserContext();
   const [books, setBooks] = useState()
 
   useEffect(() => {
@@ -26,12 +26,11 @@ const Dashboard = () => {
       fetch(url + `/books`, corpo)
         .then((resposta) => resposta.json())
         .then((dados) => {
-          
           setBooks(dados);
         });
     }
     getBooks();
-  },[]);
+  }, [user.token]);
 
   return (
     <>
