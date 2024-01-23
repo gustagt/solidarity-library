@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 import logo from "../../assets/rodape.png"
 
-const url = "http://10.101.22.20:8010";
+const url = "http://10.101.22.20:8000";
 
 const Login = () => {
 

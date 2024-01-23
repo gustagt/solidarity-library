@@ -3,7 +3,7 @@ import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.22.20:8010";
+const url = "http://10.101.22.20:8000";
 
 const InfoBook = () => {
   const { id } = useParams();

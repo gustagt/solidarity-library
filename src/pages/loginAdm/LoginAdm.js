@@ -3,7 +3,7 @@ import styles from "./LoginAdm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://10.101.22.20:8010";
+const url = "http://10.101.23.197:8000";
 
 const LoginAdm = () => {
   const navigate = useNavigate("");
