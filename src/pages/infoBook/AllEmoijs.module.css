@@ -1,0 +1,16 @@
+.heartButton button, .starButton button  {
+    border: none;
+    background-color: transparent;
+    /* display: contents;    */
+
+}
+
+.starButton {
+    display: contents; 
+}
+
+.heartButton{
+    display: contents;   
+    
+
+}

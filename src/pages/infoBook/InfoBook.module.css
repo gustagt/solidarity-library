@@ -1,28 +1,68 @@
 .card{
-    margin: 30px auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     width: 80%;
     border-radius: 16px;
+    font-family: serif;
 }
-.card p{
-    font-size: 18px;
-}
+
 .card img{
-    width: 230px;
-    height: 200px;
+    width: 220px;
+    height: 280px;
     margin: 0 auto;
 
 }
 .card button{
-    background-color: #0A8F3E;
     color: #fff;
     border: none;
-    padding: 10px;
     font-weight: bold;
     margin-top: 10px;
     border-radius: 5px;
 }
-.card button:active{
+
+.retirar{
+    padding: 10px;
+    background-color: #0A8F3E;
+
+}
+.retirar button:active{
     background-color:#065825;
+}
+.avaliationH2{
+    font-weight: 300;
+    text-align: center;
+    
+}
+.infoBookH2{
+    font-weight: 100;
+    text-align: left;
+    font-size: 20px;
+}
+.titleH1{
+    font-weight: 100;
+    text-align: center;
+
+}
+.coments{
+    width: 98%;
+    height: 50px;
+    /* border: 1px solid; */
+    border-radius: 5px;
+
+}
+.star{
+    text-align: center;
+}
+
+.heart{
+    float: right;
+    
+}
+.sad{
+    float: right;
+}
+
+.twoEnd{
+    /* padding-bottom: 15px; */
 }
