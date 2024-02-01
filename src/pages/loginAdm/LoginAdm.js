@@ -3,7 +3,7 @@ import styles from "./LoginAdm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "http://177.69.129.17:8000";
+const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
 const LoginAdm = () => {
   const navigate = useNavigate("");

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import { Star, Heart, Fun, Sad, Shocking } from "./AllEmojis";
+import { Star, Heart, Fun, Sad, Shocking } from "../../components/allEmoijs/AllEmojis";
 
-const url = "http://10.101.23.197:8000";
+const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
 const InfoBook = () => {
   const { id } = useParams();

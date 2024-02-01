@@ -3,8 +3,7 @@ import styles from "./Dashboard.module.css";
 
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
-
-const url = "http://10.101.23.197:8000";
+const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
 const Dashboard = () => {
 
