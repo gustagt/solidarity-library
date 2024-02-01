@@ -118,7 +118,7 @@ const InfoBook = () => {
           <>
            
               <img
-                src={`http://10.101.23.197:5000/books/images/cover-${book.id}.jpg`}
+                src={`${url}/books/images/cover-${book.id}.jpg`}
                 alt=""
               />
             
