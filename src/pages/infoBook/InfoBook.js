@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import {Star, Heart, Fun, Sad, Shocking} from "./AllEmojis";
-
+import { Star, Heart, Fun, Sad, Shocking } from "./AllEmojis";
 
 const url = "http://10.101.23.197:8000";
 
@@ -134,101 +133,104 @@ const InfoBook = () => {
     setActiveShocking((oldState) => (oldState === index ? undefined : index));
   };
 
-console.log(activeStar)
+  console.log(activeStar);
 
   return (
     <div>
       <div className={styles.card}>
         {book && !message ? (
           <>
-           
-              <img
-                src={`http://10.101.23.197:8000/books/images/cover-${book.id}.jpg`}
-                alt=""
-              />
-            
+            <img
+              src={`http://10.101.23.197:8000/books/images/cover-${book.id}.jpg`}
+              alt=""
+            />
+
             <h1 className={styles.titleH1}>
               Titulo: <span>{book.title}</span>
             </h1>
-            <h2 className={styles.infoBookH2}>
-              Paginas: <span>{book.pages}</span>
-            </h2>
-            <h2 className={styles.infoBookH2}>
+            <span className={styles.infoBookH2}>
+              Páginas: <span>{book.pages}</span>
+            </span>
+            <span className={styles.infoBookH2}>
               Autor: <span>{book.author}</span>
-            </h2>
-            <h2 className={styles.infoBookH2}>
+            </span>
+            <span className={styles.infoBookH2}>
               Doado em: <span>{formatDate(book.date)}</span>
-            </h2>
+            </span>
             <div className={styles.avaliation}>
-              
-        <h2 className={styles.avaliationH2}>Avaliação:</h2>
-        <div className={styles.star}> 
-          {items.map((index) => (
-            <Star
-              onClick={() => onClickStar(index+1)}
-              key={`star_${index}`}
-              isActive={index+1 <= activeStar}
-            />
-          ))}
-        </div>
-          
-          <div className={styles.twoFirst}><hr/>
-          <div className={styles.heart}>
-          <span>Romântico :</span><br></br>
-          {items.map((index) => (
-            <Heart
-            onClick={() => onClickHeart(index+1)}
-            key={`star_${index}`}
-            isActive={index+1 <= activeHeart}
-            
-            />
-          ))}</div>
-          <div >
-          <span>Divertido :</span><br></br>
+              <h2>Avaliação:</h2>
+              <div className={styles.star}>
+                {items.map((index) => (
+                  <Star
+                    onClick={() => onClickStar(index + 1)}
+                    key={`star_${index}`}
+                    isActive={index + 1 <= activeStar}
+                  />
+                ))}
+              </div>
 
-          {items.map((index) => (
-            <Fun
-            onClick={() => onClickFun(index+1)}
-            key={`star_${index}`}
-            isActive={index+1 <= activeFun}
-            
-            />
-          ))}
-          </div></div>
-          <div className={styles.twoEnd}>
-          <div className={styles.sad}>
-          <span>Triste :</span><br></br>
+              <div className={styles.twoFirst}>
+                <div className={styles.heart}>
+                  <span>Romântico: </span>
+                  {items.map((index) => (
+                    <Heart
+                      onClick={() => onClickHeart(index + 1)}
+                      key={`star_${index}`}
+                      isActive={index + 1 <= activeHeart}
+                    />
+                  ))}
+                </div>
+                <div>
+                  <span>Divertido :</span>
 
-          {items.map((index) => (
-            <Sad
-            onClick={() => onClickSad(index+1)}
-            key={`star_${index}`}
-            isActive={index+1 <= activeSad}
-            
-            />
-            
-          ))}</div>
-          
-          <div className={styles.shocking}>
-          <span>Chocante : </span><br></br>
+                  {items.map((index) => (
+                    <Fun
+                      onClick={() => onClickFun(index + 1)}
+                      key={`star_${index}`}
+                      isActive={index + 1 <= activeFun}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className={styles.twoEnd}>
+                <div className={styles.sad}>
+                  <span>Triste :</span>
 
-          {items.map((index) => (
-            <Shocking
-            onClick={() => onClickShocking(index+1)}
-            key={`star_${index}`}
-            isActive={index+1 <= activeShocking}
-            
-            />
-          ))}
-          </div></div>
-          <p> <hr/>Comentários:</p>
-          <textarea className={styles.coments} type="text" name="coments" />
-        </div>
-        
+                  {items.map((index) => (
+                    <Sad
+                      onClick={() => onClickSad(index + 1)}
+                      key={`star_${index}`}
+                      isActive={index + 1 <= activeSad}
+                    />
+                  ))}
+                </div>
+
+                <div className={styles.shocking}>
+                  <span>Chocante : </span>
+
+                  {items.map((index) => (
+                    <Shocking
+                      onClick={() => onClickShocking(index + 1)}
+                      key={`star_${index}`}
+                      isActive={index + 1 <= activeShocking}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className={styles.comentsText}>
+                <p>Comentários:</p>
+                <textarea type="text" name="coments" />
+              </div>
+            </div>
+
             {!protocol || protocol.returned_at ? (
-              <button className={styles.retirar} onClick={handleClickPOST}>Retirar</button>
+              <button className={styles.retirar} onClick={handleClickPOST}>
+                Retirar
+              </button>
             ) : (
-              <button className={styles.retirar} onClick={handleClickPUT}>Devolver</button>
+              <button className={styles.retirar} onClick={handleClickPUT}>
+                Devolver
+              </button>
             )}
           </>
         ) : (

@@ -29,40 +29,51 @@
 .retirar button:active{
     background-color:#065825;
 }
-.avaliationH2{
+.avaliation h2{
+    padding-top: 1rem;
     font-weight: 300;
     text-align: center;
-    
+    border-top: groove 2px #d8d8d88a;
 }
+.star{
+    padding-bottom: 10px;
+}
+
 .infoBookH2{
+    padding-top: .50rem;
     font-weight: 100;
     text-align: left;
     font-size: 20px;
 }
 .titleH1{
     font-weight: 100;
-    text-align: center;
-
-}
-.coments{
-    width: 98%;
-    height: 50px;
-    /* border: 1px solid; */
-    border-radius: 5px;
 
 }
 .star{
     text-align: center;
 }
 
-.heart{
-    float: right;
-    
-}
-.sad{
+.sad, .heart{
     float: right;
 }
 
+.comentsText textarea{
+    width: 98%;
+    height: 50px;
+    border-radius: 5px;
+
+}
+.twoFirst{
+    padding-top: 10px;
+}
 .twoEnd{
-    /* padding-bottom: 15px; */
+    padding-bottom: 10px;
+}
+.twoFirst,.comentsText{
+    border-top: groove 2px #d8d8d88a;
+    
+}
+.twoFirst span, .twoEnd span{
+    font-size: 1rem;
+    display: flex;
 }
