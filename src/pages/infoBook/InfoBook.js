@@ -144,11 +144,11 @@ const InfoBook = () => {
   console.log(activeStar);
 
   return (
-    <div className={styles.principal}>
+    <div>
       <div className={styles.navBar}>
         <span className={styles.biblioTitle}>BIBLIO</span>
         <span className={styles.biblioSubtitle}>TECA </span>
-        <Link to="/login-adm">SAIR</Link>
+        <Link to={`/login/info-book/${id}`}>SAIR</Link>
       </div>
       <div className={styles.card}>
         {book && !message ? (
@@ -167,84 +167,86 @@ const InfoBook = () => {
             <span className={styles.infoBookH2}>
               Doado em: <span>{formatDate(book.date)}</span>
             </span>
-            <div className={styles.avaliation}>
-              <h2>Avaliação:</h2>
-              <div className={styles.star}>
-                {items.map((index) => (
-                  <Star
-                    onClick={() => onClickStar(index + 1)}
-                    key={`star_${index}`}
-                    isActive={index + 1 <= activeStar}
-                  />
-                ))}
-              </div>
-
-              <div className={styles.twoFirst}>
-                <div className={styles.heart}>
-                  <span>Romântico: </span>
-                  {items.map((index) => (
-                    <Heart
-                      onClick={() => onClickHeart(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeHeart}
-                    />
-                  ))}
-                </div>
-                <div>
-                  <span>Divertido :</span>
-
-                  {items.map((index) => (
-                    <Fun
-                      onClick={() => onClickFun(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeFun}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className={styles.twoEnd}>
-                <div className={styles.sad}>
-                  <span>Triste :</span>
-
-                  {items.map((index) => (
-                    <Sad
-                      onClick={() => onClickSad(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeSad}
-                    />
-                  ))}
-                </div>
-
-                <div className={styles.shocking}>
-                  <span>Chocante : </span>
-
-                  {items.map((index) => (
-                    <Shocking
-                      onClick={() => onClickShocking(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeShocking}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className={styles.comentsText}>
-                <p>Comentários:</p>
-                <textarea
-                  type="text"
-                  name="coments"
-                  placeholder="Comente sobre o Livro!"
-                />
-              </div>
-            </div>
 
             {!protocol || protocol.returned_at ? (
               <button className={styles.retirar} onClick={handleClickPOST}>
                 Retirar
               </button>
             ) : (
-              <button className={styles.retirar} onClick={handleClickPUT}>
-                Devolver
-              </button>
+              <>
+                <div className={styles.avaliation}>
+                  <h2>Avaliação:</h2>
+                  <div className={styles.star}>
+                    {items.map((index) => (
+                      <Star
+                        onClick={() => onClickStar(index + 1)}
+                        key={`star_${index}`}
+                        isActive={index + 1 <= activeStar}
+                      />
+                    ))}
+                  </div>
+
+                  <div className={styles.twoFirst}>
+                    <div className={styles.heart}>
+                      <span>Romântico: </span>
+                      {items.map((index) => (
+                        <Heart
+                          onClick={() => onClickHeart(index + 1)}
+                          key={`star_${index}`}
+                          isActive={index + 1 <= activeHeart}
+                        />
+                      ))}
+                    </div>
+                    <div>
+                      <span>Divertido :</span>
+
+                      {items.map((index) => (
+                        <Fun
+                          onClick={() => onClickFun(index + 1)}
+                          key={`star_${index}`}
+                          isActive={index + 1 <= activeFun}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.twoEnd}>
+                    <div className={styles.sad}>
+                      <span>Triste :</span>
+
+                      {items.map((index) => (
+                        <Sad
+                          onClick={() => onClickSad(index + 1)}
+                          key={`star_${index}`}
+                          isActive={index + 1 <= activeSad}
+                        />
+                      ))}
+                    </div>
+
+                    <div className={styles.shocking}>
+                      <span>Chocante : </span>
+
+                      {items.map((index) => (
+                        <Shocking
+                          onClick={() => onClickShocking(index + 1)}
+                          key={`star_${index}`}
+                          isActive={index + 1 <= activeShocking}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.comentsText}>
+                    <p>Comentários:</p>
+                    <textarea
+                      type="text"
+                      name="coments"
+                      placeholder="Comente sobre o Livro!"
+                    />
+                  </div>
+                </div>
+                <button className={styles.retirar} onClick={handleClickPUT}>
+                  Devolver
+                </button>
+              </>
             )}
           </>
         ) : (
