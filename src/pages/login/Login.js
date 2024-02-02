@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <div className={styles.containerLogin}>
-      <div className={styles.rodape}>
+      <div className={styles.logo}>
         <img src={logo} alt="logo" />
       </div>
       <form className={styles.formLogin} onSubmit={handleSubmit}>

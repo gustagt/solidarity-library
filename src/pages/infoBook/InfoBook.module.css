@@ -1,10 +1,18 @@
+.principal{
+    background-color: #0a8f3d46;
+    
+}
+
 .card{
-    margin: 17px auto;
+    background-color: #fff;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
+    padding: 22px 15px;
+    height: 83%;
     width: 83%;
     border-radius: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: calibri;
 }
 
 .card img{
@@ -21,9 +29,36 @@
     border-radius: 5px;
 }
 
+.navBar{
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    font-family: calibri;
+    background-color: #0A8F3E;
 
+}
+.navBar a{
+    color: rgb(255, 255, 255);
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: 15px;
+    float: right;
+
+}
+.biblioTitle {
+    padding-LEFT: 15px;
+    color: rgb(14, 105, 2);
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.biblioSubtitle{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+ 
+}
 .retirar{
-    /* width: 100%; */
     padding: 10px;
     background-color: #0A8F3E;
 

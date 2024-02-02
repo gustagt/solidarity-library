@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import { Star, Heart, Fun, Sad, Shocking } from "../../components/allEmoijs/AllEmojis";
+import { Link } from "react-router-dom";
+import {
+  Star,
+  Heart,
+  Fun,
+  Sad,
+  Shocking,
+} from "../../components/allEmoijs/AllEmojis";
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -136,7 +143,12 @@ const InfoBook = () => {
   console.log(activeStar);
 
   return (
-    <div>
+    <div className={styles.principal}>
+      <div className={styles.navBar}>
+        <span className={styles.biblioTitle}>BIBLIO</span>
+        <span className={styles.biblioSubtitle}>TECA </span>
+        <Link to="/login-adm">SAIR</Link>
+      </div>
       <div className={styles.card}>
         {book && !message ? (
           <>
@@ -216,7 +228,11 @@ const InfoBook = () => {
               </div>
               <div className={styles.comentsText}>
                 <p>Comentários:</p>
-                <textarea type="text" name="coments" placeholder="Comente sobre o Livro!"/>
+                <textarea
+                  type="text"
+                  name="coments"
+                  placeholder="Comente sobre o Livro!"
+                />
               </div>
             </div>
 

@@ -31,7 +31,8 @@
   border-radius: 5px;
 
 }
-.rodape img{
+.logo img{
+  padding-top: 20%;
   width: 98vh;
   max-width: 100%;
   max-height: 250px;
