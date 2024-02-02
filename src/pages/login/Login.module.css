@@ -1,6 +1,5 @@
 .formLogin {
-  padding-top: 20px;
-  height: 33vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -31,10 +30,15 @@
   border-radius: 5px;
 
 }
-.logo img{
-  padding-top: 20%;
-  width: 98vh;
-  max-width: 100%;
-  max-height: 250px;
+.rodape img{
+  width: 35vh;
+  max-width: 80%;
+ 
 
+
+}
+
+.rodape{
+  display: flex;
+  justify-content: center;
 }

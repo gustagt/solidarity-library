@@ -30,3 +30,16 @@
   border-radius: 5px;
 
 }
+
+.rodape img{
+  width: 35vh;
+  max-width: 80%;
+ 
+
+
+}
+
+.rodape{
+  display: flex;
+  justify-content: center;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./LoginAdm.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
+import logo from "../../assets/biblio.svg";
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -57,6 +58,9 @@ const LoginAdm = () => {
   return (
     <div className={styles.containerLogin}>
       <form className={styles.formLogin} onSubmit={handleSubmit}>
+        <div className={styles.rodape}>
+          <img src={logo} alt="logo" />
+        </div>
         <input
           type="text"
           placeholder="User"

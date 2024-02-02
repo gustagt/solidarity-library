@@ -10,6 +10,7 @@ import {
   Sad,
   Shocking,
 } from "../../components/allEmoijs/AllEmojis";
+import Logo from "../../assets/biblio.svg";
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -247,7 +248,8 @@ const InfoBook = () => {
             )}
           </>
         ) : (
-          <div className="cardMessage">
+          <div className={`cardMessage ${styles.containerErro}`}>
+            <img src={Logo} alt="logo" />
             <b>{message}</b>
           </div>
         )}

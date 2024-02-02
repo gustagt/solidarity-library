@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import logo from "../../assets/Biblio.jpg"
+import logo from "../../assets/biblio.svg";
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
 const Login = () => {
-
   const { id } = useParams();
-  
-  const [username, setUsername ] = useState("");
+
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const { setUser } = useUserContext();
@@ -33,23 +32,23 @@ const Login = () => {
       body: JSON.stringify(data),
     };
 
-    fetch(url + '/login', body)
+    fetch(url + "/login", body)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        if (!data.token) throw data.message
+        if (!data.token) throw data.message;
         // Faça algo com os dados retornador
         const dataUser = {
           username: data.username,
           displayName: data.displayName,
           token: data.token,
         };
-        
+
         setUser(dataUser);
 
         localStorage.setItem("user-library-solidary", JSON.stringify(dataUser));
-        navigate(`/info-book/${id}`)
+        navigate(`/info-book/${id}`);
       })
       .catch((error) => {
         console.log("error", error);
@@ -60,10 +59,10 @@ const Login = () => {
 
   return (
     <div className={styles.containerLogin}>
-      <div className={styles.logo}>
-        <img src={logo} alt="logo" />
-      </div>
       <form className={styles.formLogin} onSubmit={handleSubmit}>
+        <div className={styles.rodape}>
+          <img src={logo} alt="logo" />
+        </div>
         <input
           type="text"
           placeholder="User"
@@ -80,7 +79,6 @@ const Login = () => {
         />
         <button type="submit">NEXT</button>
       </form>
-      
     </div>
   );
 };

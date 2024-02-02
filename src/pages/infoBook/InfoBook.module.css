@@ -15,18 +15,17 @@
     font-family: calibri;
 }
 
-.card img{
-    width: 220px;
-    height: 300px;
-    margin: 0 auto;
-
+.card img {
+  width: 220px;
+  height: 300px;
+  margin: 0 auto;
 }
-.card button{
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    margin-top: 10px;
-    border-radius: 5px;
+.card button {
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .navBar{
@@ -63,57 +62,61 @@
     background-color: #0A8F3E;
 
 }
-.retirar button:active{
-    background-color:#065825;
+.retirar button:active {
+  background-color: #065825;
 }
-.avaliation h2{
-    padding-top: .50rem;
-    font-weight: 200;
-    text-align: center;
-    border-top: groove 2px #d8d8d834;
+.avaliation h2 {
+  padding-top: 0.5rem;
+  font-weight: 200;
+  text-align: center;
+  border-top: groove 2px #d8d8d834;
+}
+.star {
+  padding-bottom: 10px;
+}
 
-}
-.star{
-    padding-bottom: 10px;
-}
-
-.infoBookH2{
-    padding-top: .50rem;
-    font-weight: 100;
-    text-align: left;
-    font-size: 18px;
+.infoBookH2 {
+  padding-top: 0.5rem;
+  font-weight: 100;
+  text-align: left;
+  font-size: 18px;
 }
 .titleH1 {
-    font-size: 27px;
+  font-size: 27px;
 }
-.star{
-    text-align: center;
-}
-
-.sad, .heart{
-    float: right;
+.star {
+  text-align: center;
 }
 
-.comentsText textarea{
-    padding-top: 5px;
-    padding-left: 5px;
-    width: 96%;
-    height: 50px;
-    border-radius: 5px;
+.sad,
+.heart {
+  float: right;
+}
 
+.comentsText textarea {
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 96%;
+  height: 50px;
+  border-radius: 5px;
 }
-.twoFirst{
-    padding-top: 10px;
+.twoFirst {
+  padding-top: 10px;
 }
-.twoEnd{
-    padding-top: 10px;
-    padding-bottom: 10px;
+.twoEnd {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.twoFirst,.comentsText{
-    border-top: groove 2px #d8d8d834;
-    
+.twoFirst,
+.comentsText {
+  border-top: groove 2px #d8d8d834;
 }
-.twoFirst span, .twoEnd span{
-    font-size: 1rem;
-    display: flex;
+.twoFirst span,
+.twoEnd span {
+  font-size: 1rem;
+  display: flex;
+}
+
+.containerErro img {
+  width: 50%;
 }
