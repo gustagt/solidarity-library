@@ -10,6 +10,7 @@ import LoginAdm from "./pages/loginAdm/LoginAdm"
 import InfoBook from "./pages/infoBook/InfoBook";
 import InsertBook from "./pages/insertBook/InsertBook";
 import Dashboard from "./pages/dashboard/Dashboard";
+import ErrorBook from "./pages/errorBook/ErrorBook";
 
 
 // contexts
@@ -46,7 +47,11 @@ function App() {
             path="/dashboard"
             element={user ? <Dashboard /> : <Navigate to="/login-adm" />}
           ></Route>
-          <Route path="*" element={<Navigate to="/erro-book" />}></Route>
+          <Route
+            path="/error-book"
+            element={<ErrorBook />}
+          ></Route>
+          <Route path="*" element={<Navigate to="/error-book" />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

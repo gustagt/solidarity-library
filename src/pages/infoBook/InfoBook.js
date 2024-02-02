@@ -3,6 +3,7 @@ import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 import { Star, Heart, Fun, Sad, Shocking } from "../../components/allEmoijs/AllEmojis";
+import Logo from "../../assets/biblio.svg";
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -216,7 +217,11 @@ const InfoBook = () => {
               </div>
               <div className={styles.comentsText}>
                 <p>Comentários:</p>
-                <textarea type="text" name="coments" placeholder="Comente sobre o Livro!"/>
+                <textarea
+                  type="text"
+                  name="coments"
+                  placeholder="Comente sobre o Livro!"
+                />
               </div>
             </div>
 
@@ -231,7 +236,8 @@ const InfoBook = () => {
             )}
           </>
         ) : (
-          <div className="cardMessage">
+          <div className={`cardMessage ${styles.containerErro}`}>
+            <img src={Logo} alt="logo" />
             <b>{message}</b>
           </div>
         )}
