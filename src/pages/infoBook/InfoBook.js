@@ -143,8 +143,7 @@ const InfoBook = () => {
             <img src={`${url}/books/images/cover-${book.id}.jpg`} alt="" />
 
             <h1>
-              <h1 className={styles.titleH1}></h1>
-              Titulo: <span>{book.title}</span>
+              <span className={styles.titleH1}>{book.title}</span>
             </h1>
             <span className={styles.infoBookH2}>
               Páginas: <span>{book.pages}</span>
@@ -217,7 +216,7 @@ const InfoBook = () => {
               </div>
               <div className={styles.comentsText}>
                 <p>Comentários:</p>
-                <textarea type="text" name="coments" />
+                <textarea type="text" name="coments" placeholder="Comente sobre o Livro!"/>
               </div>
             </div>
 

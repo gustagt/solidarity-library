@@ -1,11 +1,13 @@
 .heartButton button, .starButton button  {
+    padding: 5px 2px;
     border: none;
     background-color: transparent;
-    /* display: contents;    */
+
 
 }
 
 .starButton {
+
     display: contents; 
 }
 

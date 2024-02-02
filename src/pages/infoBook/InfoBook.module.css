@@ -1,15 +1,15 @@
 .card{
-    margin: 20px auto;
+    margin: 17px auto;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 83%;
     border-radius: 16px;
-    font-family: serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card img{
     width: 220px;
-    height: 280px;
+    height: 300px;
     margin: 0 auto;
 
 }
@@ -21,7 +21,9 @@
     border-radius: 5px;
 }
 
+
 .retirar{
+    /* width: 100%; */
     padding: 10px;
     background-color: #0A8F3E;
 
@@ -30,10 +32,11 @@
     background-color:#065825;
 }
 .avaliation h2{
-    padding-top: 1rem;
-    font-weight: 300;
+    padding-top: .50rem;
+    font-weight: 200;
     text-align: center;
-    border-top: groove 2px #d8d8d88a;
+    border-top: groove 2px #d8d8d834;
+
 }
 .star{
     padding-bottom: 10px;
@@ -43,11 +46,10 @@
     padding-top: .50rem;
     font-weight: 100;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
 }
-.titleH1{
-    font-weight: 100;
-
+.titleH1 {
+    font-size: 27px;
 }
 .star{
     text-align: center;
@@ -58,7 +60,9 @@
 }
 
 .comentsText textarea{
-    width: 98%;
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 96%;
     height: 50px;
     border-radius: 5px;
 
@@ -67,10 +71,11 @@
     padding-top: 10px;
 }
 .twoEnd{
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 .twoFirst,.comentsText{
-    border-top: groove 2px #d8d8d88a;
+    border-top: groove 2px #d8d8d834;
     
 }
 .twoFirst span, .twoEnd span{

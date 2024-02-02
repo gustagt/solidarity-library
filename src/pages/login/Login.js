@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import logo from "../../assets/rodape.png"
+import logo from "../../assets/Biblio.jpg"
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -60,6 +60,9 @@ const Login = () => {
 
   return (
     <div className={styles.containerLogin}>
+      <div className={styles.rodape}>
+        <img src={logo} alt="logo" />
+      </div>
       <form className={styles.formLogin} onSubmit={handleSubmit}>
         <input
           type="text"
@@ -77,9 +80,7 @@ const Login = () => {
         />
         <button type="submit">NEXT</button>
       </form>
-      <div className={styles.rodape}>
-        <img src={logo} alt="logo" />
-      </div>
+      
     </div>
   );
 };
