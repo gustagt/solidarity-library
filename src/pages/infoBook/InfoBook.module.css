@@ -1,7 +1,3 @@
-.principal{
-    background-color: #0a8f3d46;
-    
-}
 
 .card{
     background-color: #fff;
@@ -79,5 +75,7 @@
 }
 
 .containerErro img {
+    display: flex;
+    
   width: 50%;
 }

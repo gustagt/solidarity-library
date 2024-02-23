@@ -1,7 +1,8 @@
 table{
-  padding-top: 20px;
-  width: 90%;
+  margin: 32px 0;
+  width: 94%;
   max-width: 1200px;
+  border-collapse: collapse;
 }
 
 th {
@@ -19,6 +20,7 @@ td{
   color: #000000;
   text-align: center;
   background-color:rgba(122, 122, 122, 0.226) ;
+  height: 32px;
 
 }
 
@@ -27,6 +29,14 @@ tr:hover{
 }
 
 .containerTable{
-  display: flex;
-  justify-content: center;
+   background-color: #fff;
+    margin: 12px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 95%;
+    max-width: 1250px;
+    border-radius: 8px;
+    font-family: calibri;
 }

@@ -57,39 +57,42 @@ const InsertBook = () => {
   return (
     <div className={styles.containerInsertBook}>
       <Navbar />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label>
-          <input
-            type="text"
-            placeholder="Titulo"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </label>
-        <label htmlFor="">
-          <input
-            type="number"
-            placeholder="Paginas"
-            value={pages}
-            onChange={(e) => setPages(e.target.value)}
-            required
-          />
-        </label>
-        <label htmlFor="">
-          <input
-            type="text"
-            placeholder="Autor"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            required
-          />
-        </label>
-        <label htmlFor="">
-          <input type="file" name="img_book" id="img_book" required />
-        </label>
-        <button type="submit">Save</button>
-      </form>
+      <div className={styles.containerForm}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+        <h1>Inserir Livro</h1>
+          <label>
+            <input
+              type="text"
+              placeholder="Titulo"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </label>
+          <label htmlFor="">
+            <input
+              type="number"
+              placeholder="Paginas"
+              value={pages}
+              onChange={(e) => setPages(e.target.value)}
+              required
+            />
+          </label>
+          <label htmlFor="">
+            <input
+              type="text"
+              placeholder="Autor"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+            />
+          </label>
+          <label htmlFor="">
+            <input type="file" name="img_book" id="img_book" required />
+          </label>
+          <button type="submit">Save</button>
+        </form>
+ </div>
     </div>
   );
 };

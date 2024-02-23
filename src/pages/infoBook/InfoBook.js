@@ -118,11 +118,11 @@ const InfoBook = () => {
 
 
   return (
-    <div className={styles.principal}>
+    <div>
       <div className={styles.navBar}>
         <span className={styles.biblioTitle}>BIBLIO</span>
         <span className={styles.biblioSubtitle}>TECA </span>
-        <Link to="/login-adm">SAIR</Link>
+        <Link to={`/login/info-book/${id}`}>SAIR</Link>
       </div>
       <div className={styles.card}>
         {book && !message ? (
