@@ -3,14 +3,10 @@ import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 import { Link } from "react-router-dom";
-import {
-  Star,
-  Heart,
-  Fun,
-  Sad,
-  Shocking,
-} from "../../components/allEmoijs/AllEmojis";
 import Logo from "../../assets/biblio.svg";
+import AvaliationGiveBack from "../../components/avaliation/AvaliationGiveBack";
+import AvaliationtoRemove from "../../components/avaliation/AvaliationToRemove";
+
 
 const url = "https://api.transcon.contagem.mg.gov.br/biblio";
 
@@ -23,13 +19,7 @@ const InfoBook = () => {
   const [protocol, setProtocol] = useState();
   const [message, setMessage] = useState("");
 
-  const items = [...Array(5).keys()];
-  const [activeStar, setActiveStar] = useState();
-  const [activeHeart, setActiveHeart] = useState();
-  const [activeFun, setActiveFun] = useState();
-  const [activeSad, setActiveSad] = useState();
-  const [activeShocking, setActiveShocking] = useState();
-
+ 
   useEffect(() => {
     function getBook() {
       const corpo = {
@@ -125,23 +115,7 @@ const InfoBook = () => {
       });
   }
 
-  const onClickStar = (index) => {
-    setActiveStar((oldState) => (oldState === index ? undefined : index));
-  };
-  const onClickHeart = (index) => {
-    setActiveHeart((oldState) => (oldState === index ? undefined : index));
-  };
-  const onClickFun = (index) => {
-    setActiveFun((oldState) => (oldState === index ? undefined : index));
-  };
-  const onClickSad = (index) => {
-    setActiveSad((oldState) => (oldState === index ? undefined : index));
-  };
-  const onClickShocking = (index) => {
-    setActiveShocking((oldState) => (oldState === index ? undefined : index));
-  };
 
-  console.log(activeStar);
 
   return (
     <div className={styles.principal}>
@@ -167,84 +141,20 @@ const InfoBook = () => {
             <span className={styles.infoBookH2}>
               Doado em: <span>{formatDate(book.date)}</span>
             </span>
-            <div className={styles.avaliation}>
-              <h2>Avaliação:</h2>
-              <div className={styles.star}>
-                {items.map((index) => (
-                  <Star
-                    onClick={() => onClickStar(index + 1)}
-                    key={`star_${index}`}
-                    isActive={index + 1 <= activeStar}
-                  />
-                ))}
-              </div>
-
-              <div className={styles.twoFirst}>
-                <div className={styles.heart}>
-                  <span>Romântico: </span>
-                  {items.map((index) => (
-                    <Heart
-                      onClick={() => onClickHeart(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeHeart}
-                    />
-                  ))}
-                </div>
-                <div>
-                  <span>Divertido :</span>
-
-                  {items.map((index) => (
-                    <Fun
-                      onClick={() => onClickFun(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeFun}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className={styles.twoEnd}>
-                <div className={styles.sad}>
-                  <span>Triste :</span>
-
-                  {items.map((index) => (
-                    <Sad
-                      onClick={() => onClickSad(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeSad}
-                    />
-                  ))}
-                </div>
-
-                <div className={styles.shocking}>
-                  <span>Chocante : </span>
-
-                  {items.map((index) => (
-                    <Shocking
-                      onClick={() => onClickShocking(index + 1)}
-                      key={`star_${index}`}
-                      isActive={index + 1 <= activeShocking}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className={styles.comentsText}>
-                <p>Comentários:</p>
-                <textarea
-                  type="text"
-                  name="coments"
-                  placeholder="Comente sobre o Livro!"
-                />
-              </div>
-            </div>
-
             {!protocol || protocol.returned_at ? (
+              <>
+              <AvaliationtoRemove/>
               <button className={styles.retirar} onClick={handleClickPOST}>
                 Retirar
               </button>
+              </>
             ) : (
+              <>
+              <AvaliationGiveBack/>
               <button className={styles.retirar} onClick={handleClickPUT}>
                 Devolver
               </button>
+              </>
             )}
           </>
         ) : (

@@ -12,7 +12,7 @@
     height: 83%;
     width: 83%;
     border-radius: 16px;
-    font-family: calibri;
+    font-family: system-ui;
 }
 
 .card img {
@@ -65,56 +65,17 @@
 .retirar button:active {
   background-color: #065825;
 }
-.avaliation h2 {
-  padding-top: 0.5rem;
-  font-weight: 200;
-  text-align: center;
-  border-top: groove 2px #d8d8d834;
-}
-.star {
-  padding-bottom: 10px;
-}
+
+
 
 .infoBookH2 {
   padding-top: 0.5rem;
-  font-weight: 100;
+  font-weight: 400;
   text-align: left;
   font-size: 18px;
 }
 .titleH1 {
   font-size: 27px;
-}
-.star {
-  text-align: center;
-}
-
-.sad,
-.heart {
-  float: right;
-}
-
-.comentsText textarea {
-  padding-top: 5px;
-  padding-left: 5px;
-  width: 96%;
-  height: 50px;
-  border-radius: 5px;
-}
-.twoFirst {
-  padding-top: 10px;
-}
-.twoEnd {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.twoFirst,
-.comentsText {
-  border-top: groove 2px #d8d8d834;
-}
-.twoFirst span,
-.twoEnd span {
-  font-size: 1rem;
-  display: flex;
 }
 
 .containerErro img {

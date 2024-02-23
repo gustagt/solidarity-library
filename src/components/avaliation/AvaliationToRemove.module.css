@@ -1,0 +1,44 @@
+.avaliation h2{
+    /* border-top: groove 2px #d8d8d834; */
+    text-align: center;
+    font-weight: 300;
+}
+.numberRate{
+    padding-left: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.star button{
+    border: none;
+    background-color: transparent;
+    padding: 5px 2px;
+
+}
+.classification button{
+    padding: 1px 1px;
+    border: none;
+    background-color: transparent;
+}
+
+
+.comentsText {
+    /* margin-top: 20px; */
+    border:groove 2px #d8d8d834;
+    padding-left: 10px;
+}
+.svgs {
+    padding-top: 10px;
+    padding-bottom: 7px;
+}
+.name{
+    padding-bottom: 2px;
+    font-weight: bold;
+    display: grid;
+}
+.comments{
+    padding: 10px 0px;
+    display: grid;
+}
+.date{
+    color:#bebebe ;
+}
