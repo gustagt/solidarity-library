@@ -30,7 +30,6 @@
 }
 
 .progressBarM{
-    
     background-color: rgb(255, 208, 0);
     width: 110px;
     height: 7px;
@@ -40,14 +39,16 @@
 
 }
 
-   
+.Swiper-pagination{
+    color:green;
+}
 
 .progressBar{
     display:flex;
 }
 .comentsText {
     border:groove 2px #d8d8d834;
-    padding-left: 10px;
+    padding: 0 10px;
 }
 .svgs {
     padding-top: 10px;

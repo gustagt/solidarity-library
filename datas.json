@@ -1,0 +1,68 @@
+{"datas":[
+  {
+    "name": "Jullyana",
+    "date": "2024-06-22",
+    "coments": "Excelente história, emocionante do início ao fim!",
+    "avaliation": 4,
+    "romantic": 5,
+    "fun": 4,
+    "shocking": 3,
+    "sad": 2,
+    "id": "7a1c"
+  },
+  {
+    "name": "Lucas",
+    "date": "2024-09-23",
+    "coments": "A trama me prendeu completamente, recomendo!",
+    "avaliation": 3,
+    "romantic": 4,
+    "fun": 5,
+    "shocking": 3,
+    "sad": 2,
+    "id": "bc06"
+  },
+  {
+    "name": "Isabela",
+    "date": "2023-06-04",
+    "coments": "Leitura envolvente, personagens cativantes!",
+    "avaliation": 5,
+    "romantic": 4,
+    "fun": 4,
+    "shocking": 5,
+    "sad": 3,
+    "id": "f644"
+  },
+  {
+    "name": "Ricardo",
+    "date": "2024-3-15",
+    "coments": "Muito emocionante, me fez refletir bastante.",
+    "avaliation": 3,
+    "romantic": 3,
+    "fun": 3,
+    "shocking": 4,
+    "sad": 5,
+    "id": "150e"
+  },
+  {
+    "name": "Camila",
+    "date": "2024-07-02",
+    "coments": "História surpreendente, recomendo a todos!",
+    "avaliation": 2,
+    "romantic": 5,
+    "fun": 4,
+    "shocking": 5,
+    "sad": 1,
+    "id": "19af"
+  },
+  {
+    "name": "Gabriel",
+    "date": "2024-04-27",
+    "coments": "Uma leitura leve e divertida, adorei!",
+    "avaliation": 4,
+    "romantic": 4,
+    "fun": 5,
+    "shocking": 2,
+    "sad": 3,
+    "id": "d032"
+  }
+]}
