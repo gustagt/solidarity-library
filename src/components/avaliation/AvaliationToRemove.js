@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { logDOM } from "@testing-library/react";
 
 
 const items = [...Array(5).keys()];
@@ -54,7 +55,21 @@ const Classification = ({ isActive }) => {
 const AvaliationtoRemove = () => {
   const [activeStar, setActiveStar] = useState();
   const [dados, setDados] = useState([]);
+
   
+  const avaliation = dados.map((dado) => dado.avaliation);
+  const romantic = dados.map((dado) => dado.romantic);
+  const fun = dados.map((dado) => dado.fun);
+  const shocking = dados.map((dado) => dado.shocking);
+  const sad = dados.map((dado) => dado.sad);
+
+  // console.log(fun);
+  // console.log(avaliation);
+  // console.log(romantic);
+  // console.log(shocking);
+  // console.log(sad);
+
+
   register();
 
   useEffect(() => {
