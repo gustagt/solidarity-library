@@ -67,10 +67,11 @@ const AvaliationtoRemove = () => {
     shocking += i.shocking / dados.length;
     sad += i.sad / dados.length;
   }
-  console.log(avaliation);
+
   register();
 
   useEffect(() => {
+    //Substituir pelos dados reais
     fetch("http://localhost:5000/datas", {})
       .then((resp) => resp.json())
       .then((x) => {
@@ -150,9 +151,9 @@ const AvaliationtoRemove = () => {
                       />
                     ))}
                   </div>
-                  <span className={styles.name}> {dado.name}</span>
-                  <span className={styles.date}> {dado.date}</span>
-                  <span className={styles.comments}> {dado.coments}</span>
+                  <span className={styles.name}> {dado.user_possession}</span>
+                  <span className={styles.date}> {dado.returned_at}</span>
+                  <span className={styles.comments}> {dado.comments}</span>
                 </div>
               </SwiperSlide>
             ))}

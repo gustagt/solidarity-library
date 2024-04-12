@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
 
-const url = "https://api.transcon.contagem.mg.gov.br/biblio";
+// const url = "https://api.transcon.contagem.mg.gov.br/biblio";
+const url = "http://10.101.23.197:8001";
 
 const InsertBook = () => {
   const navigate = useNavigate("");
