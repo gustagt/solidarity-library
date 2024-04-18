@@ -20,7 +20,9 @@ const InfoBook = () => {
 
 
   const [book, setBook] = useState();
+  
   const [protocol, setProtocol] = useState();
+
   const [message, setMessage] = useState("");
 
   const items = [...Array(5).keys()];
@@ -68,7 +70,7 @@ const InfoBook = () => {
       fetch(url + `/books/${id}`, corpo)
         .then((resposta) => resposta.json())
         .then((data) => {
-          setBook(data[0]);
+          setBook(data);
         });
     }
 
@@ -135,15 +137,16 @@ const InfoBook = () => {
       remove_at: protocol.remove_at,
       returned_at: protocol.returned_at,
       user_possession: protocol.user_possession,
-      assessments: {
-        comments: comments,
-        fun: activeFun,
-        overall: activeStar,
-        romantic: activeHeart,
-        sad: activeSad,
-        shocking: activeShocking,
+      assessment: {
+        comments: comments ? comments : null,
+        fun: activeFun ? activeFun : null,
+        overall: activeStar ? activeStar : null,
+        romantic: activeHeart ? activeHeart : null,
+        sad: activeSad ? activeSad : null,
+        shocking: activeShocking ? activeShocking : null,
       }
     };
+     console.log(protocolAssessments)
 
     const body = {
       method: "PUT",
@@ -153,7 +156,6 @@ const InfoBook = () => {
       },
       body: JSON.stringify(protocolAssessments),
     };
-console.log(body);
     fetch(url + `/protocols/${protocol.id}`, body)
       .then((response) => {
         return response.json();
@@ -193,7 +195,7 @@ console.log(body);
             </span>
             {!protocol || protocol.returned_at ? (
               <>
-                <AvaliationtoRemove />
+                <AvaliationtoRemove book = {book}/>
                 <button className={styles.retirar} onClick={handleClickPOST}>
                   Retirar
                 </button>

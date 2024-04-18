@@ -1,8 +1,6 @@
-// Excluir o Script "backend": "json-server --watch datas.json --port 5000" em packege.json após conseguir linkar os dados com o frontEnd
-
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 import styles from "./AvaliationToRemove.module.css";
 import React, { useEffect, useState } from "react";
+
 
 //Importação para o carrossel dos comentarios
 import { register } from "swiper/element/bundle";
@@ -51,43 +49,44 @@ const Classification = ({ isActive }) => {
   );
 };
 
-const AvaliationtoRemove = () => {
-  const [dados, setDados] = useState([]);
 
-  let avaliation = 0;
+const AvaliationtoRemove = ({book}) => {
+
+  const datas = book.assessments;
+
+  function formatDate(dateNotFormat) {
+    const date = new Date(dateNotFormat);
+    const dateNew =
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    return dateNew;
+  }
+
+  let overall = 0;
   let romantic = 0;
   let fun = 0;
   let shocking = 0;
   let sad = 0;
 
-  for (const i of dados) {
-    avaliation += i.avaliation / dados.length;
-    romantic += i.romantic / dados.length;
-    fun += i.fun / dados.length;
-    shocking += i.shocking / dados.length;
-    sad += i.sad / dados.length;
+  for (const i of datas) {
+
+    overall += i.overall / datas.length;
+    romantic += i.romantic / datas.length;
+    fun += i.fun / datas.length;
+    shocking += i.shocking / datas.length;
+    sad += i.sad / datas.length;
   }
-
+  
   register();
-
-  useEffect(() => {
-    //Substituir pelos dados reais
-    fetch("http://localhost:5000/datas", {})
-      .then((resp) => resp.json())
-      .then((x) => {
-        setDados(x);
-      });
-  }, []);
-
+  
   return (
     <>
       <div className={styles.avaliation}>
         <div>
           <h2>Avaliações:</h2>
           <div className={styles.star}>
-            <span className={styles.numberRate}>{avaliation}</span>
+            <span className={styles.numberRate}>{overall.toFixed(1)}</span>
             {items.map((index) => (
-              <Star key={`star_${index}`} isActive={index + 1 <= avaliation} />
+              <Star key={`star_${index}`} isActive={index + 1 <= overall} />
             ))}
           </div>
         </div>
@@ -139,20 +138,20 @@ const AvaliationtoRemove = () => {
         </div>
         <h2>Comentários</h2>
         <Swiper slidesPerView={1}>
-          {dados &&
-            dados.map((dado) => (
+          {datas &&
+            datas.map((dado) => (
               <SwiperSlide key={dado.id}>
                 <div className={styles.comentsText}>
                   <div className={styles.classification}>
                     {items.map((index) => (
                       <Classification
                         key={`star_${index}`}
-                        isActive={index + 1 <= dado.avaliation}
+                        isActive={index + 1 <= dado.overall}
                       />
                     ))}
                   </div>
-                  <span className={styles.name}> {dado.user_possession}</span>
-                  <span className={styles.date}> {dado.returned_at}</span>
+                  <span className={styles.name}> {dado.protocol.user_possession}</span>
+                  <span className={styles.date}> {formatDate(dado.protocol.returned_at)}</span>
                   <span className={styles.comments}> {dado.comments}</span>
                 </div>
               </SwiperSlide>
