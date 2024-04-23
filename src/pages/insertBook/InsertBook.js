@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./InsertBook.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
+import { UrlContext } from "../../context/UrlContext";
 
-// const url = "https://api.transcon.contagem.mg.gov.br/biblio";
-const url = "http://10.101.23.197:8001";
+
 
 const InsertBook = () => {
   const navigate = useNavigate("");
@@ -13,9 +13,10 @@ const InsertBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [pages, setPages] = useState();
-    const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
 
-    const { user } = useUserContext();
+  const { user } = useUserContext();
+  const url = useContext(UrlContext);
 
 
   function handleSubmit(e) {

@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 
 import Navbar from "../../components/navbar/Navbar";
 import { useUserContext } from "../../hooks/useUserContext";
 
-// const url = "https://api.transcon.contagem.mg.gov.br/biblio";
-const url = "http://10.101.23.197:8001";
+import { UrlContext } from "../../context/UrlContext";
 
 const Dashboard = () => {
 
+  const url = useContext(UrlContext);
 
-    const { user } = useUserContext();
+  const { user } = useUserContext();
+  
   const [books, setBooks] = useState()
-
   useEffect(() => {
     function getBooks() {
       const corpo = {

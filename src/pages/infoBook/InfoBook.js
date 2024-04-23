@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext,useEffect, useState } from "react";
 import styles from "./InfoBook.module.css";
 import { useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/biblio.svg";
 import { Star, Heart, Fun, Sad, Shocking } from "../../components/allEmoijs/AllEmojis";
 import AvaliationtoRemove from "../../components/avaliation/AvaliationToRemove";
+import { UrlContext } from "../../context/UrlContext";
 
 
 
-// const url = "https://api.transcon.contagem.mg.gov.br/biblio";
-const url = "http://10.101.23.197:8001";
 
 
 const InfoBook = () => {
   const { id } = useParams();
 
   const { user } = useUserContext();
-
+  
+  const url = useContext(UrlContext);
 
   const [book, setBook] = useState();
   

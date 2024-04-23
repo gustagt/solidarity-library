@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
 import logo from "../../assets/biblio.svg";
-
-const url = "https://api.transcon.contagem.mg.gov.br/biblio";
+import { UrlContext } from "../../context/UrlContext";
 
 const Login = () => {
   const { id } = useParams();
+
+  const url = useContext(UrlContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
