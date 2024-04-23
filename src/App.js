@@ -18,6 +18,7 @@ import ErrorBook from "./pages/errorBook/ErrorBook";
 
 import "./App.css";
 import { useUserContext } from "./hooks/useUserContext";
+import { UrlProvider } from "./context/UrlContext";
 
 function App() {
   //usuario do contexto
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+          <UrlProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/login/:path/:id" element={<Login />}></Route>
@@ -38,7 +40,7 @@ function App() {
                 <Navigate to={`/login${window.location.pathname}`} />
               )
             }
-          ></Route>
+            ></Route>
           <Route
             path="/insert-book"
             element={user ? <InsertBook /> : <Navigate to="/login-adm" />}
@@ -54,6 +56,7 @@ function App() {
           <Route path="*" element={<Navigate to="/error-book" />}></Route>
         </Routes>
       </BrowserRouter>
+        </UrlProvider>
     </div>
   );
 }
