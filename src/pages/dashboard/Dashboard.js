@@ -13,6 +13,7 @@ const Dashboard = () => {
   const { user } = useUserContext();
   
   const [books, setBooks] = useState()
+  
   useEffect(() => {
     function getBooks() {
       const corpo = {
@@ -23,6 +24,8 @@ const Dashboard = () => {
         },
         mode: "cors",
       };
+
+      
 
       fetch(url + `/books`, corpo)
         .then((resposta) => resposta.json())
